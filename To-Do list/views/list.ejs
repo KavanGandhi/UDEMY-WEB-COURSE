@@ -1,0 +1,30 @@
+<%-include("header")-%> <!-- layout so we don't have to write agian and again-->
+    <div class="box" id="heading">
+        <h1> <%= listTitle %> </h1>
+    </div>
+    <!-- if we want to use control flow in this file i.e we're using js here
+    so we have to enclose every line using ejs brackets except html using<% %> -->
+   <!-- <% if(listTitle==="Sunday" || listTitle==="Saturday"){ %>
+        <h1 style="color: aqua;">It's a <%= listTitle%>!</h1>
+    <% }else{ %>
+        <h1 style="color:blue">It's a <%= listTitle%>!</h1>
+    <% } %> -->
+    <form action="/" method="post">
+   <div class="box">
+        <% for(let i=0;i<newthing.length;i++){ %>
+            <div class="item">
+                <input class="btn1" type="checkbox" name="ditem" value="delete" >
+               
+      <p> <%= newthing[i] %></p> 
+      <!-- <button class="mbtn" type="submit">-</button> -->
+      </div>
+        <% } %>
+    </form>
+  
+  
+    <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button class="mbtn" type="submit" name="list" value="<%=listTitle%>">+</button>
+    </form>
+</div>
+<%- include("footer")-%>
